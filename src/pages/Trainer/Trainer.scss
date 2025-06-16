@@ -366,39 +366,35 @@
 	}
 }
 
-.hand-clap-timer {
+.distraction {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+
 	.title {
 		text-align: center;
-		margin-bottom: 15px;
 	}
 
 	.wrapper {
 		background: #FEFEFE;
 		box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
 		border-radius: 24px;
-		padding: 100px 20px 120px;
+		padding: 16px 40px;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		gap: 20px;
+		align-items: start;
 
-		.time {
+		.words {
+			min-width: 600px;
 			text-align: center;
-			font-size: 128px;
+			font-size: 35px;
 			line-height: 1;
-			font-weight: bold;
-
-			&.end {
-				font-size: 90px;
-			}
 		}
+	}
 
-		.button {
-			font-size: 48px;
-		}
-
-		.button:active {
-			scale: 0.8;
-		}
+	.button-distraction {
+		max-width: 300px;
+		font-size: 32px;
 	}
 }
