@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ChildList from "../ChildList/ChildList.jsx";
 
 function TrainerInit({ user, setActiveComponent, setSelectedChild }) {

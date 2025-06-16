@@ -34,7 +34,7 @@ function Login() {
 			}, 3000);
 		}
 		return () => clearTimeout(timerId); // Очистка таймера при размонтировании компонента
-	}, [navigate]);
+	}, [navigate, isAuth]);
 
 	if (isAuth) {
 		return (
