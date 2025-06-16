@@ -7,7 +7,7 @@ function Footer() {
 	return (
 		<footer>
 			<div className="container">
-				<Link className="logo" to="/" title="На главную">
+				<Link className="logo" to="/main" title="На главную">
 					<img src={lightLogoImg} alt="Logo" />
 				</Link>
 				<p className="copyright">Teremok - web trainer © {curYear}</p>

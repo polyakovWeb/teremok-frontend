@@ -1,0 +1,90 @@
+.instruction-wrapper {
+	margin: 40px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	text-align: justify;
+
+	.title {
+		text-align: center;
+	}
+
+	.info,
+	.instruction-step {
+		text-indent: 30px;
+		font-size: 24px;
+	}
+
+	ul,
+	ul li {
+		list-style: circle;
+		color: var(--first-color);
+	}
+
+	.grid-img {
+		display: grid;
+		grid-template-areas:
+			"step2 step2 step1"
+			"step2 step2 step3"
+			"step4 step4 step4";
+		align-items: center;
+		gap: 10px;
+		column-gap: 20px;
+
+		.num-wrapper {
+			position: absolute;
+		}
+
+		.number {
+			position: relative;
+			top: -10px;
+			left: -10px;
+			background-color: var(--first-color);
+			color: #fff;
+			padding: 5px 15px;
+			border-radius: 50%;
+			font-weight: bold;
+		}
+
+		.step1 {
+			grid-area: step1;
+		}
+
+		.step2 {
+			grid-area: step2;
+			padding-top: 35px;
+			padding-bottom: 35px;
+		}
+
+		.step3 {
+			grid-area: step3;
+		}
+
+		.step4 {
+			grid-area: step4;
+			margin: 0 130px;
+		}
+
+		figure {
+			border: 3px solid var(--first-color);
+			padding: 15px;
+			border-radius: 20px;
+			text-align: center;
+
+			img {
+				padding: 20px;
+				box-shadow: 0px 10px 15px 5px rgba(89, 0, 214, 0.15);
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+	.goodluck {
+		color: var(--first-color);
+		font-weight: bold;
+		font-size: 30px;
+	}
+
+
+}

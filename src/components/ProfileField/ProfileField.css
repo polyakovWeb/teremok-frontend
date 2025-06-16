@@ -1,0 +1,27 @@
+.field {
+	display: flex;
+	align-items: center;
+	min-width: 800px;
+	border-bottom: solid 2px #e5e2e2;
+	padding: 25px 20px 0px;
+}
+
+.field label {
+	margin-right: 15px;
+	min-width: 150px;
+}
+
+.field input {
+	min-width: 250px;
+	font-weight: bold;
+}
+
+.field .error {
+	font-size: 16px;
+	color: #f00;
+}
+
+.field .disabled {
+	color: rgb(118, 118, 118);
+	cursor: not-allowed;
+}

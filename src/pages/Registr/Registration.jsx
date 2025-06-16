@@ -3,11 +3,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import {
 	registrationInitialValues,
 	registrationSchema,
-} from "../../components/Form/helpers";
+} from "../../components/YupValidation/helpers";
 import Input from "../../components/Input/Input";
 import "./Registration.css";
 import "../Login/Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../components/AuthContext/AuthContext";
+import axios from "axios";
 
 function Registration() {
 	const {
@@ -22,8 +24,9 @@ function Registration() {
 		resolver: yupResolver(registrationSchema),
 	});
 
-	// В дальнейшем доработать функцию с отправкой данных на бэкенд
+	// Обработчик отправки данных формы
 	const onSubmit = (data) => {
+		// Проверка двух введённых паролей
 		const { password, confirmPassword } = data;
 		if (password !== confirmPassword) {
 			["confirmPassword", "password"].forEach((name) => {
@@ -36,10 +39,44 @@ function Registration() {
 			});
 			return;
 		}
-		alert(JSON.stringify(data, null, 2));
-		// В дальнейшем данные "data" отправляются на сервер для регистрации
-		// ...
+		// Запрос на сервер на регистрацию пользователя
+		axios
+			.post("http://localhost:4444/registr", data)
+			.then((res) => {
+				if (res.statusText === "OK") {
+					alert("Регистраци прошла успешно! Необходимо войти в личный кабинет");
+					navigate("/login");
+				} else {
+					alert("Ошибка во время регистрации.");
+					console.error(res);
+					setError("server", { message: res.data.errors[0].msg });
+				}
+			})
+			.catch((axiosErr) => {
+				alert("Во время регистрации произошла ошибка.");
+				// Добавить поле для отображения ошибки? (вдруг введённый email уже существует и прочее)
+				// Установить сообщение в поле ошибки при помощи React-Hook-Form
+
+				setError("server", { message: axiosErr.response.data.errors[0].msg });
+				console.log(axiosErr);
+			});
 	};
+
+	const navigate = useNavigate();
+	const { isAuth } = useAuth();
+
+	// Для УЖЕ авторизованного пользователя - переадресация на главный экран с alert уведомлением
+	if (isAuth) {
+		setTimeout(() => navigate("/"), 3000);
+		return (
+			<div>
+				<h2 className="title">Вы уже авторизованы!</h2>
+				<div className="message">Переадресация через 3 секунды...</div>
+			</div>
+			// Модальное окно
+			// <ModalWindow title={"Вы уже авторизованы!"} message={"Переадресация..."} />
+		);
+	}
 
 	return (
 		<div className="form-wrapper registration">
@@ -92,6 +129,12 @@ function Registration() {
 					/>
 					{/* Опционально: добавить загрузку файла аватарки на сервер */}
 
+					{/* Поле с условным рендером для отображения ошибки, если та возникает в процессе авторизации */}
+					{errors.server && (
+						<div style={{ color: "red" }}>
+							<p>{errors.server.message}</p>
+						</div>
+					)}
 					<button type="submit" className="form__button button-hovered">
 						Зарегистрироваться
 					</button>

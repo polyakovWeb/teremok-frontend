@@ -1,0 +1,402 @@
+.trainer-init {
+	display: flex;
+	flex-direction: column;
+	max-width: 740px;
+
+
+	.trainer-init__title {
+		margin-bottom: 25px;
+		text-align: center;
+		font-size: 32px;
+		font-weight: 700;
+		color: var(--first-color);
+	}
+
+	.init-button {
+		background-color: var(--first-color);
+		color: #fff;
+		font-weight: bold;
+		align-self: center;
+		border-radius: 24px;
+		padding: 10px 25px;
+		transition: all ease-in-out 0.3s;
+
+		&.disabled {
+			background-color: darkgray;
+			cursor: not-allowed;
+		}
+
+		&:not(.disabled):hover {
+			scale: 1.1;
+		}
+	}
+
+	p.info {
+		align-self: center;
+		margin-top: 15px;
+	}
+}
+
+.trainer-task {
+	margin-bottom: 20px;
+
+	.title {
+		text-align: center;
+		margin-bottom: 60px;
+	}
+
+	.task-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		justify-items: center;
+		gap: 50px;
+		margin-bottom: 30px;
+
+		.task-wrapper {
+			transition: all ease-in-out 1s;
+
+			.task-item:hover {
+				opacity: 0.9;
+				scale: 1.1;
+			}
+
+			.task-item {
+				background-color: #FEFEFE;
+				box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
+				border-radius: 24px;
+				text-align: center;
+				color: #000;
+				font-size: 36px;
+				display: block;
+				width: 400px;
+				overflow: hidden;
+				transition: all ease-in-out 0.3s;
+			}
+
+			.task-radiobutton {
+				display: none;
+			}
+
+			.task-radiobutton:checked~.task-item {
+				outline: 2px solid var(--first-color);
+				scale: 1.1;
+				opacity: 1;
+			}
+
+			.task-name {
+				padding: 30px 30px;
+				background: no-repeat 50px 50%
+			}
+		}
+	}
+
+	.info {
+		text-align: center;
+		margin-bottom: 20px;
+
+		.selected {
+			color: var(--first-color);
+			display: inline;
+		}
+	}
+
+	.buttons-wrapper {
+		display: flex;
+		justify-content: space-between;
+
+		button {
+			color: #fff;
+			font-weight: bold;
+			font-size: 36px;
+			background-color: var(--first-color);
+			border-radius: 24px;
+			padding: 8px 50px;
+			transition: all ease-in-out 0.3s;
+
+			&:disabled {
+				background-color: darkgray;
+				cursor: not-allowed;
+			}
+		}
+
+		button:hover:not(:disabled) {
+			scale: 1.1;
+		}
+
+
+	}
+}
+
+.card-selection {
+	.title {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.cards-wrapper {
+		background: #FEFEFE;
+		box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
+		border-radius: 24px;
+		padding: 30px 30px 20px;
+
+		.cards-list {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 30px;
+
+			.cards-item {
+				width: 160px;
+				height: 260px;
+				background-color: #D9D9D9;
+				border-radius: 24px;
+				overflow: hidden;
+				cursor: pointer;
+				transition: all ease-in-out 0.3s;
+				opacity: 0.85;
+
+				&.selected {
+					border: 2px solid var(--first-color);
+					scale: 1.1;
+					opacity: 1;
+				}
+
+				&:hover {
+					opacity: 1;
+				}
+
+				.cards-img {
+					display: block;
+					position: relative;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+
+		.cards-actions {
+			display: flex;
+		}
+
+		.buttons-container {
+			display: flex;
+			margin-bottom: 5px;
+
+			.next {
+				margin-left: 15px;
+			}
+		}
+
+		.iteration {
+			margin-left: auto;
+		}
+	}
+}
+
+.task {
+	margin-bottom: 35px;
+
+	.title {
+		text-align: center;
+		margin-bottom: 5px;
+	}
+
+	.info {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.task-wrapper {
+		background: #FEFEFE;
+		box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
+		border-radius: 24px;
+		padding: 40px 40px 20px;
+
+		.help {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 30px;
+
+			.helper {
+				width: 160px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				.imgs-container {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-wrap: wrap;
+					margin-bottom: 15px;
+				}
+
+				.imgs-count {
+					font-size: 24px;
+				}
+			}
+		}
+
+
+		.task-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 64px;
+			margin-bottom: 50px;
+
+			.number {
+				width: 160px;
+				text-align: center;
+				padding: 40px 0;
+				outline: #000 2px solid;
+			}
+
+		}
+
+		.operation {
+			font-size: 128px;
+		}
+
+		.task-footer {
+			display: flex;
+			justify-content: space-between;
+
+			.button {
+				font-size: 36px;
+			}
+
+			.task-number {
+				align-self: flex-end;
+			}
+		}
+
+	}
+}
+
+.card-greeting {
+	margin-bottom: 20px;
+
+	.title {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.card-greeting-wrapper {
+		background: #FEFEFE;
+		box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
+		border-radius: 24px;
+		padding: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.card-container {
+			background-color: #D9D9D9;
+			width: 275px;
+			height: 440px;
+			border-radius: 24px;
+			overflow: hidden;
+			margin-bottom: 30px;
+
+			.card-img {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.next {
+			align-self: flex-end;
+		}
+	}
+}
+
+.cartoon {
+	margin-bottom: 20px;
+
+	.title {
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	.cartoon-wrapper {
+		background: #FEFEFE;
+		box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
+		border-radius: 24px;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.info {
+			text-align: center;
+			margin-bottom: 15px;
+		}
+
+		.card-list {
+			display: flex;
+			gap: 10px;
+			margin-bottom: 20px;
+
+			.card-item {
+				background-color: #D9D9D9;
+				--w: 110px;
+				width: var(--w);
+				height: calc(var(--w)/5*8);
+				border-radius: 24px;
+				overflow: hidden;
+
+				.card-img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+
+		.awards {
+			margin-bottom: 10px;
+		}
+
+		.video-content {
+			width: 720px;
+			height: 405px;
+			margin-bottom: 15px;
+		}
+	}
+}
+
+.distraction {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+
+	.title {
+		text-align: center;
+	}
+
+	.wrapper {
+		background: #FEFEFE;
+		box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
+		border-radius: 24px;
+		padding: 16px 40px;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+
+		.words {
+			min-width: 600px;
+			text-align: center;
+			font-size: 35px;
+			line-height: 1;
+		}
+	}
+
+	.button-distraction {
+		max-width: 300px;
+		font-size: 32px;
+	}
+}

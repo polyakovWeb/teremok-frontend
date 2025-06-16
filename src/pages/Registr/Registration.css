@@ -1,13 +1,4 @@
 /* общие стили с формой логина находятся в common.css */
-.registration {
-	margin-top: 25px;
-	margin-bottom: 25px;
-}
-
-.registration .form__title {
-	/* font-size: 20px; */
-}
-
 .registration .input-container {
 	margin-bottom: 25px;
 }

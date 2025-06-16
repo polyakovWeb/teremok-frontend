@@ -1,0 +1,80 @@
+.profile-wrapper {
+	box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
+	border-radius: 24px;
+	padding: 20px 36px;
+	margin: 20px 0;
+}
+
+.profile-wrapper__title {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.user-info {
+	border-radius: 24px;
+	border: 1px black solid;
+	overflow: hidden;
+	margin-bottom: 25px;
+}
+
+.profile-button {
+	color: #fefefe;
+	font-weight: bold;
+	background-color: #20adad;
+	padding: 10px 30px;
+	border-radius: 24px;
+}
+
+.profile-button.save {
+	margin: 15px;
+	margin-right: 0;
+}
+
+.profile-button:hover {
+	background-color: #8ee2e2;
+}
+
+.children-info {
+	display: flex;
+	flex-direction: column;
+}
+
+.children-info h2 {
+	margin-left: 15px;
+	margin-bottom: 10px;
+	font-size: 22px;
+}
+
+.children-list {
+	border-radius: 24px;
+	border: 1px black solid;
+	overflow: hidden;
+	padding: 5px 20px;
+	margin-bottom: 20px;
+}
+
+.change-child .child-buttons,
+.create-child .profile-button {
+	margin: 15px;
+}
+
+.child-buttons {
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+}
+
+.add-child {
+	background-color: var(--first-color);
+}
+
+.delete-child {
+	color: gray;
+	background-color: #d9d9d9;
+	margin-left: auto;
+}
+
+.delete-child:hover {
+	color: white;
+	background-color: red;
+}
