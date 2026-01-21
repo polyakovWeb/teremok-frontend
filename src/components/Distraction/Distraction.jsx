@@ -22,11 +22,7 @@ function Distraction({ setActiveComponent }) {
 
 	return (
 		<div className='distraction'>
-			<h1 className='title'>
-				Молодец, ты решил задание, но с подсказкой. <br />
-				Давай прочтём слова, написанные ниже, а затем решим эту же задачу
-				заново!
-			</h1>
+			<h1 className='title'>Прочитай</h1>
 			<div className='wrapper'>
 				<p className={`words`}>{getRandomWordsString(wordsArr, 3)}</p>
 			</div>

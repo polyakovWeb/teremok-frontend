@@ -1,15 +1,14 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import {
 	registrationInitialValues,
 	registrationSchema,
-} from "../../components/YupValidation/helpers";
-import Input from "../../components/Input/Input";
-import "./Registration.css";
-import "../Login/Login.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../components/AuthContext/AuthContext";
-import axios from "axios";
+} from '../../components/YupValidation/helpers';
+import Input from '../../components/Input/Input';
+import './Registration.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../components/AuthContext/AuthContext';
+import axios from 'axios';
 
 function Registration() {
 	const {
@@ -20,7 +19,7 @@ function Registration() {
 		resetField,
 	} = useForm({
 		defaultValues: registrationInitialValues,
-		mode: "all",
+		mode: 'all',
 		resolver: yupResolver(registrationSchema),
 	});
 
@@ -29,11 +28,11 @@ function Registration() {
 		// Проверка двух введённых паролей
 		const { password, confirmPassword } = data;
 		if (password !== confirmPassword) {
-			["confirmPassword", "password"].forEach((name) => {
+			['confirmPassword', 'password'].forEach((name) => {
 				console.log(name);
 				setError(name, {
-					type: "custom",
-					message: "Ваши пароли не совпадают",
+					type: 'custom',
+					message: 'Ваши пароли не совпадают',
 				});
 				resetField(name, { keepError: true });
 			});
@@ -41,23 +40,27 @@ function Registration() {
 		}
 		// Запрос на сервер на регистрацию пользователя
 		axios
-			.post("http://localhost:4444/registr", data)
+			.post('http://localhost:4444/registr', data)
 			.then((res) => {
-				if (res.statusText === "OK") {
-					alert("Регистраци прошла успешно! Необходимо войти в личный кабинет");
-					navigate("/login");
+				if (res.statusText === 'OK') {
+					alert(
+						'Регистраци прошла успешно! Необходимо войти в личный кабинет'
+					);
+					navigate('/login');
 				} else {
-					alert("Ошибка во время регистрации.");
+					alert('Ошибка во время регистрации.');
 					console.error(res);
-					setError("server", { message: res.data.errors[0].msg });
+					setError('server', { message: res.data.errors[0].msg });
 				}
 			})
 			.catch((axiosErr) => {
-				alert("Во время регистрации произошла ошибка.");
+				alert('Во время регистрации произошла ошибка.');
 				// Добавить поле для отображения ошибки? (вдруг введённый email уже существует и прочее)
 				// Установить сообщение в поле ошибки при помощи React-Hook-Form
 
-				setError("server", { message: axiosErr.response.data.errors[0].msg });
+				setError('server', {
+					message: axiosErr.response.data.errors[0].msg,
+				});
 				console.log(axiosErr);
 			});
 	};
@@ -67,11 +70,11 @@ function Registration() {
 
 	// Для УЖЕ авторизованного пользователя - переадресация на главный экран с alert уведомлением
 	if (isAuth) {
-		setTimeout(() => navigate("/"), 3000);
+		setTimeout(() => navigate('/'), 3000);
 		return (
 			<div>
-				<h2 className="title">Вы уже авторизованы!</h2>
-				<div className="message">Переадресация через 3 секунды...</div>
+				<h2 className='title'>Вы уже авторизованы!</h2>
+				<div className='message'>Переадресация через 3 секунды...</div>
 			</div>
 			// Модальное окно
 			// <ModalWindow title={"Вы уже авторизованы!"} message={"Переадресация..."} />
@@ -79,73 +82,73 @@ function Registration() {
 	}
 
 	return (
-		<div className="form-wrapper registration">
-			<div className="wrapper__content">
-				<form className="form" onSubmit={handleSubmit(onSubmit)}>
-					<h1 className="form__title">Регистрация</h1>
+		<div className='form-wrapper registration'>
+			<div className='wrapper__content'>
+				<form className='form' onSubmit={handleSubmit(onSubmit)}>
+					<h1 className='form__title'>Регистрация</h1>
 					<Input
-						name="firstName"
-						labelText="Ваше имя *"
-						placeholder="Имя"
+						name='firstName'
+						labelText='Ваше имя *'
+						placeholder='Имя'
 						register={register}
 						errors={errors}
 					/>
 					<Input
-						name="lastName"
-						labelText="Ваша фамилия *"
-						placeholder="Фамилия"
+						name='lastName'
+						labelText='Ваша фамилия *'
+						placeholder='Фамилия'
 						register={register}
 						errors={errors}
 					/>
 					<Input
-						name="patronymic"
-						labelText="Ваше отчество (необязательно)"
-						placeholder="Отчество"
+						name='patronymic'
+						labelText='Ваше отчество (необязательно)'
+						placeholder='Отчество'
 						register={register}
 						errors={errors}
 					/>
 					<Input
-						name="email"
-						labelText="Почтовый ящик *"
-						placeholder="Введите почту"
+						name='email'
+						labelText='Почтовый ящик *'
+						placeholder='Введите почту'
 						register={register}
 						errors={errors}
 					/>
 					<Input
-						name="password"
-						labelText={"Придумайте пароль (от 5 до 50 символов)*"}
-						placeholder={"Введите пароль"}
+						name='password'
+						labelText={'Придумайте пароль (от 5 до 50 символов)*'}
+						placeholder={'Введите пароль'}
 						register={register}
 						errors={errors}
-						type={"password"}
+						type={'password'}
 					/>
 					<Input
-						name="confirmPassword"
-						labelText={"Введите пароль повторно*"}
-						placeholder={"Введите пароль"}
+						name='confirmPassword'
+						labelText={'Введите пароль повторно*'}
+						placeholder={'Введите пароль'}
 						register={register}
 						errors={errors}
-						type={"password"}
+						type={'password'}
 					/>
 					{/* Опционально: добавить загрузку файла аватарки на сервер */}
 
 					{/* Поле с условным рендером для отображения ошибки, если та возникает в процессе авторизации */}
 					{errors.server && (
-						<div style={{ color: "red" }}>
+						<div style={{ color: 'red' }}>
 							<p>{errors.server.message}</p>
 						</div>
 					)}
-					<button type="submit" className="form__button button-hovered">
+					<button type='submit' className='form__button button-hovered'>
 						Зарегистрироваться
 					</button>
 				</form>
 			</div>
-			<div className="border"></div>
-			<div className="wrapper__footer footer">
-				<div className="footer__title">
+			<div className='border'></div>
+			<div className='wrapper__footer footer'>
+				<div className='footer__title'>
 					Уже есть свой профиль? Войдите по кнопке ниже!
 				</div>
-				<Link to="/login" className="footer__button button-hovered">
+				<Link to='/login' className='footer__button button-hovered'>
 					Войти
 				</Link>
 			</div>
