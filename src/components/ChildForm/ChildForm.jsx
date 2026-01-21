@@ -5,7 +5,7 @@ import { childSchema } from "../YupValidation/helpers";
 import axios from "axios";
 import { useAuth } from "../AuthContext/AuthContext";
 
-const API_URL = process.env.API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 function ChildForm({ mode, setTypeUserForm, selectedChild }) {
   // Для компонентов профиля ребёнка и родителя понадобатся useForm
@@ -70,7 +70,7 @@ function ChildForm({ mode, setTypeUserForm, selectedChild }) {
               },
             })
             .then((req) => {
-              if (req.statusText === "OK") {
+              if (req.status === 200) {
                 alert("Данные успешно сохранены!");
                 setTypeUserForm("parent");
                 console.log(req);
@@ -98,7 +98,8 @@ function ChildForm({ mode, setTypeUserForm, selectedChild }) {
               },
             )
             .then((req) => {
-              if (req.statusText === "OK") {
+              console.log(req);
+              if (req.status === 200) {
                 alert("Запись о ребёнке успешно зарегистрирована!");
                 setTypeUserForm("parent");
               } else alert("Не удалось зарегистрирова запись ребёнка");
@@ -130,8 +131,8 @@ function ChildForm({ mode, setTypeUserForm, selectedChild }) {
             },
           },
         )
-        .then((res) => {
-          if (res.statusText === "OK") {
+        .then((req) => {
+          if (req.status === 200) {
             alert("Данные ребёнка успешно удалены!");
             setUser(null);
             setTypeUserForm("parent");

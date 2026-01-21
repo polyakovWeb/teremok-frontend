@@ -5,7 +5,6 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "axios": "^1.7.9",
-    "cra-template": "1.2.0",
     "depcheck": "^1.4.7",
     "libphonenumber-js": "^1.11.19",
     "react": "^19.0.0",
@@ -43,13 +42,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.28.6",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.1.0",
-    "babel-loader": "^10.0.0",
-    "dotenv": "^17.2.3",
-    "web-vitals": "^4.2.4",
-    "webpack": "^5.104.1",
-    "webpack-cli": "^6.0.1"
+    "web-vitals": "^4.2.4"
   }
 }

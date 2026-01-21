@@ -6,7 +6,7 @@ import axios from "axios";
 import { useAuth } from "../AuthContext/AuthContext";
 import ChildList from "../ChildList/ChildList";
 
-const API_URL = process.env.API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 function ParentForm({
   user,
@@ -31,7 +31,6 @@ function ParentForm({
   // Сохранение информации пользователя из формы
   const saveUserInfo = async (userInfoData) => {
     if (window.confirm("Уверены, что хотите сохранить изменения?")) {
-      console.log(userInfoData);
       setIsLoading(true);
       const { _id, createdAt, updatedAt, __v, childrens, ...updatedUser } =
         userInfoData;
@@ -44,7 +43,8 @@ function ParentForm({
           },
         })
         .then((req) => {
-          if (req.statusText === "OK") {
+          console.log(req.data);
+          if (req.data.success) {
             alert("Данные успешно сохранены!");
             login(userInfoData);
           } else alert("Не удалось сохранить данные");

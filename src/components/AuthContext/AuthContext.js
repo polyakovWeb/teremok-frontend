@@ -5,7 +5,7 @@ import Loading from "../Loading/Loading.jsx";
 
 // Context API позволяет хранить информацию пользователя в одном месте и передавать их без необходимости прокидывать пропсы на каждом уровне
 const AuthContext = createContext();
-const API_URL = process.env.API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const AuthProvider = ({ children }) => {
   // Состояние данных пользователя (по умолчанию - пусто)
