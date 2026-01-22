@@ -10,6 +10,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../components/AuthContext/AuthContext";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function Registration() {
   const {
     register,
@@ -40,7 +42,7 @@ function Registration() {
     }
     // Запрос на сервер на регистрацию пользователя
     axios
-      .post("http://localhost:4444/registr", data)
+      .post(`${API_URL}/registr`, data)
       .then((res) => {
         if (res.statusText === "OK") {
           alert("Регистраци прошла успешно! Необходимо войти в личный кабинет");
