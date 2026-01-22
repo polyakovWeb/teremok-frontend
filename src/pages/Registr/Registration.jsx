@@ -58,7 +58,9 @@ function Registration() {
         // Добавить поле для отображения ошибки? (вдруг введённый email уже существует и прочее)
         // Установить сообщение в поле ошибки при помощи React-Hook-Form
 
-        setError("server", { message: axiosErr.response.data.errors[0].msg });
+        setError("server", {
+          message: axiosErr.response.data.errors[0].msg,
+        });
         console.log(axiosErr);
       });
   };
