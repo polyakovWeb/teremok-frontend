@@ -73,7 +73,6 @@ function ChildForm({ mode, setTypeUserForm, selectedChild }) {
               if (req.status === 200) {
                 alert("Данные успешно сохранены!");
                 setTypeUserForm("parent");
-                console.log(req);
               } else alert("Не удалось сохранить данные");
             })
             .catch((err) => {
@@ -98,7 +97,6 @@ function ChildForm({ mode, setTypeUserForm, selectedChild }) {
               },
             )
             .then((req) => {
-              console.log(req);
               if (req.status === 200) {
                 alert("Запись о ребёнке успешно зарегистрирована!");
                 setTypeUserForm("parent");
