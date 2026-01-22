@@ -14,37 +14,37 @@ import Methodics from "../../pages/Methodics/Methodics.jsx";
 import Instruction from "../../pages/Instruction/Instruction.jsx";
 
 function AppContent() {
-	const { isLoading } = useAuth();
-	if (isLoading) return <Loading />;
-	return (
-		<BrowserRouter>
-			{/* Шапка */}
-			<Header />
-			<div className="container">
-				<Routes>
-					{/* Переадресация */}
-					<Route path="/" element={<Navigate to="/main" />} />
+  const { isLoading } = useAuth();
+  if (isLoading) return <Loading />;
+  return (
+    <BrowserRouter>
+      {/* Шапка */}
+      <Header />
+      <div className="container">
+        <Routes>
+          {/* Переадресация */}
+          <Route path="/" element={<Navigate to="/main" />} />
 
-					{/* Сраница не найдена */}
-					<Route path="/notfound" element={<NotFound />} />
-					<Route path="*" element={<Navigate to="/notfound" replace />} />
-					{/* Найденный вомбат */}
-					<Route path="/wombat" element={<Wombat />} />
+          {/* Сраница не найдена */}
+          <Route path="/notfound" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/notfound" replace />} />
+          {/* Найденный вомбат */}
+          <Route path="/wombat" element={<Wombat />} />
 
-					{/* Главная */}
-					<Route path="/main" element={<Main />} />
+          {/* Главная */}
+          <Route path="/main" element={<Main />} />
 
-					{/* Инструкция по тренажёру */}
-					<Route path="/instruction" element={<Instruction />} />
+          {/* Инструкция по тренажёру */}
+          <Route path="/instruction" element={<Instruction />} />
 
-					{/* Методические указания */}
-					<Route path="/methodics" element={<Methodics />} />
+          {/* Методические указания */}
+          <Route path="/methodics" element={<Methodics />} />
 
-					{/* Тренажёр */}
-					<Route path="/trainer" element={<Trainer />} />
+          {/* Тренажёр */}
+          <Route path="/trainer" element={<Trainer />} />
 
-					{/* ------------------------------------------------------- */}
-					{/* Приватные роуты (профиль и тд) 
+          {/* ------------------------------------------------------- */}
+          {/* Приватные роуты (профиль и тд) 
 						
 						Описание компонента:
 						---------------------------------
@@ -62,17 +62,17 @@ function AppContent() {
 						Пример использования: <PrivateRoute path="/profile" element={<Profile />} />
 						
 						*/}
-					{/* Авторизация, регистрация, личный кабинет */}
-					<Route path="/login" element={<Login />} />
-					<Route path="/registr" element={<Registration />} />
-					<Route path="/user" element={<UserProfile />} />
-					{/* ------------------------------------------------------- */}
-				</Routes>
-			</div>
-			{/* Подвал */}
-			<Footer />
-		</BrowserRouter>
-	);
+          {/* Авторизация, регистрация, личный кабинет */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/registr" element={<Registration />} />
+          <Route path="/user" element={<UserProfile />} />
+          {/* ------------------------------------------------------- */}
+        </Routes>
+      </div>
+      {/* Подвал */}
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
 export default AppContent;
